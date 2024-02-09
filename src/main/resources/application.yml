@@ -1,0 +1,12 @@
+server:
+  port: 1193
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/todoapp
+    username: root
+    password: admin
+  jpa:
+    show-sql: true
+#    hibernate:
+#      ddl-auto: create
