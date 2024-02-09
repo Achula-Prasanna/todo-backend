@@ -1,11 +1,11 @@
 package com.prasanna.todobackend.entities;
 
-import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+import javax.persistence.*;
 
 @Entity
 @Table(name="todo")
@@ -13,10 +13,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Todo {
+
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="todo_id")
-    private Integer todoId;
+    private Long todoId;
     @Column(name="todo_text")
     private String todoText;
     @Column(name="todo_status")

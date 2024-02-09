@@ -21,15 +21,16 @@ public class TodoController {
     private TodoService todoService;
 
 
-    @GetMapping("/todo")
+    @GetMapping("/todo/{category}")
     @ApiOperation(value="Api for getting all the Todo Activities")
     @ApiResponses(value = {
             @ApiResponse(code=200, message="Ok"),
             @ApiResponse(code=401,message="UnAuthorized")
 
     })
-    public ResponseEntity<List<Todo>> getTodos() {
-     return null;
+    public ResponseEntity<List<Todo>> getTodos(@PathVariable("category") String category) {
+        List<Todo> todos = todoService.getTodosForCategory(category);
+        return ResponseEntity.ok(todos);
     }
 
     @PostMapping("/todo")

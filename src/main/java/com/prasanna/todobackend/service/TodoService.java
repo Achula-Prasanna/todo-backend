@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Slf4j
 public class TodoService {
@@ -21,8 +23,9 @@ public class TodoService {
         return todoRepository.save(todo);
     }
 
-    public Category saveCategory(Category category) {
-        log.info("Saving Category: ",category);
-        return categoryRepository.save(category);
+    public List<Todo> getTodosForCategory(String category) {
+        List<Todo> todos = todoRepository.findByCategoryName(category);
+        return todos;
     }
+
 }
