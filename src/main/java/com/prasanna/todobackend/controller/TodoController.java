@@ -20,7 +20,7 @@ public class TodoController {
     @Autowired
     private TodoService todoService;
 
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/todo/{category}")
     @ApiOperation(value="Api for getting all the Todo Activities")
     @ApiResponses(value = {
@@ -33,6 +33,7 @@ public class TodoController {
         return ResponseEntity.ok(todos);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/todo")
     @ApiOperation(value="Api for saving Todo Activity")
     @ApiResponses(value = {

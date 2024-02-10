@@ -38,6 +38,7 @@ public class CategoryController {
         return ResponseEntity.ok(categories);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/category")
     @ApiOperation(value="Api for saving Category type")
     @ApiResponses(value = {
