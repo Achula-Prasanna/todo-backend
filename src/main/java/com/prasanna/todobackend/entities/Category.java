@@ -3,6 +3,7 @@ package com.prasanna.todobackend.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,19 +14,20 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "category_id")
+    @Column(name="category_id")
     private Long categoryId;
-    @Column(name="category_name")
-    private String category;
+    @Column(name="category_name",nullable = false,unique = true)
+    private String categoryName;
     @Column(name="color_code")
     private String colorCode;
 
-    @OneToMany(mappedBy="category", fetch = FetchType.LAZY)
-    private List<Todo> todos = new ArrayList<>();
+    @Transient
+    private Long todoCount;
 
 }
 

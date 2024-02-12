@@ -1,22 +1,25 @@
 package com.prasanna.todobackend.entities;
 
-import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-
+import javax.persistence.*;
 
 @Entity
 @Table(name="todo")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Todo {
+
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="todo_id")
-    private Integer todoId;
+    private Long todoId;
     @Column(name="todo_text")
     private String todoText;
     @Column(name="todo_status")
